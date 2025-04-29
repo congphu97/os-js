@@ -1,0 +1,20 @@
+  {
+  "type": "application",
+  "name": "MyAngularApp",
+  "category": null,
+  "autostart": false,
+  "singleton": false,
+  "hidden": false,
+
+  "icon": null,
+
+  "server": "server.js",
+  "groups": [],
+  "strictGroups": true,
+  "title": {
+    "en_EN": "My Application"
+  },
+  "description": {
+    "en_EN": "My Application"
+  }
+}
