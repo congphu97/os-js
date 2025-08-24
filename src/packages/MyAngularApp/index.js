@@ -92,10 +92,11 @@ const register = (core, args, options, metadata) => {
 
     // Create iframe to load Angular app
     const iframe = document.createElement('iframe');
-    iframe.src = proc.resource('./index.html'); // <-- Make sure your Angular build is under "angular" folder
+    iframe.src = proc.resource('https://ngc-library.vercel.app/'); // <-- Make sure your Angular build is under "angular" folder
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     iframe.style.border = '0';
+    iframe.style.background = 'white';
 
     $content.appendChild(iframe);
   });
