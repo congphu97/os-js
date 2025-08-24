@@ -30,8 +30,26 @@
 
 # THIS IS ONLY INTENDED FOR DEVELOPMENT USAGE
 
-FROM node:10
-RUN npm install -g nodemon
-WORKDIR /usr/src/osjs
-COPY entrypoint.sh .
-CMD ./entrypoint.sh
+# FROM node:10
+# RUN npm install -g nodemon
+# WORKDIR /usr/src/osjs
+# COPY entrypoint.sh .
+# CMD ./entrypoint.sh
+
+
+FROM node:16.20.0
+
+WORKDIR /app
+COPY . .
+
+RUN npm install && npm update
+
+# Build Angular app
+RUN cd src/packages/MyAngularApp && npm run build
+
+# Quay lại thư mục gốc, discover packages, build lại toàn bộ
+RUN npm run package:discover && npm run build
+
+EXPOSE 8000
+
+CMD ["npm", "run", "serve"]
